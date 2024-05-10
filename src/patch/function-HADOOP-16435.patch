@@ -1,0 +1,28 @@
+diff --git a/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ipc/metrics/RpcDetailedMetrics.java b/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ipc/metrics/RpcDetailedMetrics.java
+index 6461b186a4b..67ae4cc4f91 100644
+--- a/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ipc/metrics/RpcDetailedMetrics.java
++++ b/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ipc/metrics/RpcDetailedMetrics.java
+@@ -82,5 +82,7 @@ public void addDeferredProcessingTime(String name, long processingTime) {
+    * Shutdown the instrumentation for the process
+    */
+   //@Override // some instrumentation interface
+-  public void shutdown() {}
++  public void shutdown() {
++    DefaultMetricsSystem.instance().unregisterSource(name);
++  }
+ }
+diff --git a/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ipc/metrics/RpcMetrics.java b/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ipc/metrics/RpcMetrics.java
+index 06f9244f188..bb4bfcfd08b 100644
+--- a/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ipc/metrics/RpcMetrics.java
++++ b/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ipc/metrics/RpcMetrics.java
+@@ -182,7 +182,9 @@ public void incrAuthorizationFailures() {
+    * Shutdown the instrumentation for the process
+    */
+   //@Override
+-  public void shutdown() {}
++  public void shutdown() {
++    DefaultMetricsSystem.instance().unregisterSource(name);
++  }
+ 
+   /**
+    * Increment sent bytes by count
