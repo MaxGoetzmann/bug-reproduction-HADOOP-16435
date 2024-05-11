@@ -1,7 +1,5 @@
 # Reproducing HADOOP-16435
 
-### \t RpcMetrics should not be retained forever
-
 ## Explanation
 
 
