@@ -41,7 +41,7 @@ public class TestCustomRpcMetrics {
       if (usedMemory < prev) {
         ps.println("Iteration " + i + ": Used memory = " + usedMemory + " out of " + totalMemory);
         ps_csv.println((i - 1) + ", " + prev);
-        ps_csv.println(i + ", " + prev);
+        ps_csv.println(i + ", " + usedMemory);
       }
 
       Server server = new Server("0.0.0.0", 0, LongWritable.class, 1, conf) {
