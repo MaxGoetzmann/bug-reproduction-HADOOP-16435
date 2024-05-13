@@ -23,6 +23,7 @@ sudo apt install maven -y
 # Create buggy version of Hadoop
 init_repo $BUGGY_REPO
 git apply ../../test-HADOOP-16435.patch
+mvn install
 cd $HOME
 copy_new_files $BUGGY_REPO
 

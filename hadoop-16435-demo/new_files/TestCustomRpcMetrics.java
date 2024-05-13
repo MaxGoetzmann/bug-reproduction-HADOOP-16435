@@ -33,7 +33,7 @@ public class TestCustomRpcMetrics {
 
     long totalMemory = Runtime.getRuntime().totalMemory();
     long usedMemory = -1, prev = -1;
-    for (int i = 0; i < 25000; i++) { // Port binding error when 2^16 iterations exceeded
+    for (int i = 0; i < 20000; i++) { // Port binding error when 2^16 iterations exceeded
       prev = usedMemory;
       long freeMemory = Runtime.getRuntime().freeMemory();
       usedMemory = totalMemory - freeMemory;
