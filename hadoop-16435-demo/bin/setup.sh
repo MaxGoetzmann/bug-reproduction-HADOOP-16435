@@ -5,7 +5,7 @@ source vars.sh
 function init_repo() {
     mkdir $1
     cd $1
-    git clone git@github.com:apache/hadoop.git
+    git clone https://github.com/apache/hadoop.git
     cd hadoop
     git checkout 85d9111 
 }
