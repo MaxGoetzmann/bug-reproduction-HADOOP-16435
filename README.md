@@ -8,7 +8,7 @@
 
 - **Impact/symptom:** Memory leak
 
-- **Fix:** in Rpc(Detailed)Metrics shutdown() method, deregister from DefaultMetricsSystem.
+- **Fix:** in `Rpc(Detailed)Metrics` `shutdown()` method, deregister from DefaultMetricsSystem.
 
 ## Further materials
 
