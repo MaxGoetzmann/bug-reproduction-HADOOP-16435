@@ -2,13 +2,13 @@
 
 ## Explanation
 
-(2019) Hadoop provides a high level Server class for other Apache libraries like Hive and Tez to use. These Server instances are used as sessions for remote connections, and are created and deleted multiple times within single processes. Each Server instantiates RpcMetrics and RpcDetailedMetrics and registers them to the static DefaultMetricsSystem. However, on Server shutdown, RpcMetrics are not deregistered from the system.
+(2019) Hadoop provides a high level `Server` class for other Apache libraries like Hive and Tez to use. These `Server` instances are used as sessions for remote connections, and are created and deleted multiple times within single processes. Each `Server` instantiates `RpcMetrics` and `RpcDetailedMetrics` and registers them to the static `DefaultMetricsSystem`. However, on `Server` shutdown, `RpcMetrics` are not deregistered from the system.
 
 - **Workload:** Create many servers and monitor increases in heap usage.
 
 - **Impact/symptom:** Memory leak
 
-- **Fix:** in `Rpc(Detailed)Metrics` `shutdown()` method, deregister from DefaultMetricsSystem.
+- **Fix:** in `Rpc(Detailed)Metrics` `shutdown()` method, deregister from `DefaultMetricsSystem`.
 
 ## Further materials
 
